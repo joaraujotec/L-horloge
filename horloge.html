@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relógio @joaraujotec</title>
+    <style>
+      h1 {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        align-content: center;
+      }
+
+      #horloge {
+        background-color: rgb(16, 6, 155);
+        font-size: 50px;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        color: rgba(235, 235, 235, 0.836);
+        margin: 0 auto;
+        border: 2px solid black;
+        border-radius: 20px 40px;
+        border-color: rgb(150, 0, 0);
+        padding: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body style="background-color: hsl(0, 36%, 48%)">
+    <h1>L'horloge</h1>
+
+    <p>
+      <strong> La pratique avec JavaScript</strong> En travaillant avec la
+      manipulation des heures en utilisant la fonction
+      <b><em>setInterval</em></b> pour appeller la fonction à chaque second!
+    </p>
+
+    <div id="horloge">08:06:45 AM</div>
+    <script>
+      setInterval(montrerLhorloge, 1000); //Appeller la fonction à caque second.
+      function montrerLhorloge() {
+        let temps = new Date();
+        let heure = String(temps.getHours()).padStart(2, "0");
+        let min = String(temps.getMinutes()).padStart(2, "0"); // completer les minutes pour les premiers chiffres ex: 01
+        let seg = String(temps.getSeconds()).padStart(2, "0");
+        let heureActuel = heure + ":" + min + ":" + seg;
+        console.log(heureActuel);
+
+        document.getElementById("horloge").innerHTML = heureActuel;
+      }
+      montrerLhorloge();
+    </script>
+
+    <footer><br />Activité - cours <b>@ProgramadorLifeStyle</b></footer>
+  </body>
+</html>
